@@ -1,0 +1,13 @@
+Q1：numpy下载特别慢应该怎么解决？
+答：运用清华的镜像文件下载，可以提高下载的速度。
+Q2：caffe包导入错误应该如何解决？
+答：第一种：安装配置错误。
+1、安装vs2012。
+2、安装 cude 6.5  可到此处下载：https://developer.nvidia.com/cuda-toolkit-65, 下载的是64bit的EXE文件，下载完后，双击安装就可以了，如果默认安装路径，则应该安装在C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.5。
+3、下载caffe-windows版本。 下载地址：https://github.com/niuzhiheng/caffe ，下载后解压，如我的F:\caffe-windows，将此作为根目录
+4、下载第三方库，比较多，有opencv,openblas, boost, glog,protobuf,leveldb等。如果你的vs版本和我一样，可直接用其它人编译好的第三方库，在此下载：http://pan.baidu.com/s/1o7lxD8Y ，下载完成后解压， 里面有两个压缩包，第一个3rd.7z，就是我们要的所有第三方库，第二个为mnist-leveldb.7z,是安装好caffe后进行测试用到的minist手写数据。解压3rd.7z，会得到三个文件夹（3rdparty,bin,tools）
+将这三个文件夹直接复制到F:\caffe-windows这个根目录下，覆盖原来的。
+5、OK，所有的都齐全了，可以编译了。进入根目录下的\build\MSVC文件夹，双击MainBuilder.sln ,用vs2012打开解决方案。将配置管理器设置为“x64",不然编译不了。
+然后点击”生成-生成解决方案“，就开始编译了。编译过程非常漫长，慢慢等待。你可以打开”视图-其它窗口-代码分析“来查看编译进行程度。在编译过程中，会出现相当多的warning警告，不用管。
+6、编译成功后，会在”视图-其它窗口-代码分析“窗口显示”未检测到任何代码分析问题“，并且会在根目录下的bin文件夹内，生成MainCaller.exe, MainCaller.pdb等文件。
+第二种：python版本错误：应使用python3.5及以下版本。
