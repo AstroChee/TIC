@@ -1,3 +1,0 @@
-配置：需要caffe、pickle、sys、numpy等python包。另外因caffe不能兼容python3.6以上的版本，在运行caffe时要在python3.5的环境下运行。
-编译：在导入所有外部包的前提下进行正确的编译。
-安装：无需安装，打开run_scene.py即可运行。
